@@ -3,18 +3,30 @@ ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name) {
     _hitPoints = 100;
     _energyPoints = 50;
     _attackDamage = 20;
-    // Using COLOR_RED and COLOR_RESET macros
     std::cout << COLOR_RED << "ScavTrap " << _name << " constructed!" << COLOR_RESET << std::endl;
 }
 
+ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other) {
+    std::cout << COLOR_RED << "ScavTrap " << _name << " copy constructed!" << COLOR_RESET << std::endl;
+}
+
+ScavTrap& ScavTrap::operator=(const ScavTrap& other) {
+    if (this != &other) {
+        this->_name = other._name;
+        this->_hitPoints = other._hitPoints;
+        this->_energyPoints = other._energyPoints;
+        this->_attackDamage = other._attackDamage;
+    }
+    std::cout << COLOR_RED << "ScavTrap " << _name << " copy assigned!" << COLOR_RESET << std::endl;
+    return *this;
+}
+
 ScavTrap::~ScavTrap() {
-    // Using COLOR_RED and COLOR_RESET macros
     std::cout << COLOR_RED << "ScavTrap " << _name << " destructed!" << COLOR_RESET << std::endl;
 }
 
 void ScavTrap::attack(const std::string& target) {
     if (_energyPoints > 0 && _hitPoints > 0) {
-        // Using COLOR_RED and COLOR_RESET macros
         std::cout << COLOR_RED << "ScavTrap " << _name << " viciously attacks " << target 
                   << ", causing " << _attackDamage << " points of damage!" << COLOR_RESET << std::endl;
         _energyPoints--;
@@ -26,6 +38,5 @@ void ScavTrap::attack(const std::string& target) {
 }
 
 void ScavTrap::guardGate() {
-    // Using COLOR_RED and COLOR_RESET macros
     std::cout << COLOR_RED << "ScavTrap " << _name << " is now in Gate keeper mode!" << COLOR_RESET << std::endl;
 }

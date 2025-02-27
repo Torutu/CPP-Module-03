@@ -9,6 +9,21 @@ FragTrap::FragTrap(const std::string& name) : ClapTrap(name) {
     std::cout << COLOR_GREEN << "FragTrap " << _name << " constructed!" << COLOR_RESET << std::endl;
 }
 
+FragTrap::FragTrap(const FragTrap& other) : ClapTrap(other) { // Copy constructor
+    std::cout << "FragTrap " << _name << " copied!" << std::endl;
+}
+
+FragTrap& FragTrap::operator=(const FragTrap& other) { // Assignment operator
+    if (this != &other) {
+        _name = other._name;
+        _hitPoints = other._hitPoints;
+        _energyPoints = other._energyPoints;
+        _attackDamage = other._attackDamage;
+    }
+    std::cout << "FragTrap " << _name << " assigned!" << std::endl;
+    return *this;
+}
+
 FragTrap::~FragTrap() {
     // Using GREEN and RESET macros
     std::cout << COLOR_GREEN << "FragTrap " << _name << " destructed!" << COLOR_RESET << std::endl;

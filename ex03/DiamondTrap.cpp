@@ -1,6 +1,17 @@
 #include "DiamondTrap.hpp"
 #include <iostream>
 
+DiamondTrap::DiamondTrap()// Default constructor
+    : ClapTrap(), ScavTrap(), FragTrap(), _name("Default") {
+    std::cout << COLOR_BLUE << "DiamondTrap " << _name << " constructed!" << COLOR_RESET << std::endl;
+
+    // Set attributes based on parent classes
+    this->_name=ClapTrap::_name + "_clap_name";                   // Name from ClapTrap
+    this->_hitPoints = FragTrap::_hitPoints;       // Hit points from FragTrap
+    this->_energyPoints = ScavTrap::_energyPoints; // Energy points from ScavTrap
+    this->_attackDamage = FragTrap::_attackDamage; // Attack damage from FragTrap
+}
+
 DiamondTrap::DiamondTrap(const std::string& name)// Constructor
     : ClapTrap(name + "_clap_name"), // Initialize ClapTrap subobject
       ScavTrap(name),                // Initialize ScavTrap subobject
@@ -39,6 +50,6 @@ void	DiamondTrap::attack(const std::string &target){
 }
 
 // Special function
-void DiamondTrap::whoAmI() const {
+void DiamondTrap::whoAmI() {
     std::cout << COLOR_BLUE << "I am " << _name << ", and my ClapTrap name is " << ClapTrap::_name << COLOR_RESET << std::endl;
 }

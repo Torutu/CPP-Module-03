@@ -1,8 +1,13 @@
 #include "ClapTrap.hpp"
 
-// Constructor
-ClapTrap::ClapTrap(const std::string& name)
-    : _name(name), _hitPoints(10), _energyPoints(50), _attackDamage(5) {
+//Constructor
+ClapTrap::ClapTrap() : _name("Clappy"), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
+    std::cout << "ClapTrap " << _name << " has been created!" << std::endl;
+}
+
+// Parameterized constructor
+ClapTrap::ClapTrap(const std::string& name)// 
+    : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
     std::cout << "ClapTrap " << _name << " has been created!" << std::endl;
 }
 

@@ -1,24 +1,18 @@
 #include "ClapTrap.hpp"
 
 int main() {
-    // Create a ClapTrap
-    ClapTrap clap("Clappy");
+    ClapTrap clap("Clappy"); // Create a ClapTrap
     std::cout << "Energy points left: " << clap.getEnergyPoints() << std::endl;
-    // Attack a target
-    clap.attack("Bandit");
+    clap.attack("Bandit");// Attack a target
     std::cout << "Energy points left: " << clap.getEnergyPoints() << std::endl;
-    // Take damage
-    clap.takeDamage(2);
-    // Repair itself
-    clap.beRepaired(1);
+    clap.takeDamage(2);// Take damage
+    clap.beRepaired(1);// Repair itself
     std::cout << "Energy points left: " << clap.getEnergyPoints() << std::endl;
-    // Test energy depletion
-    for (int i = 0; i < 5; ++i) {
+    for (int i = 0; i < 5; ++i) { // Test energy depletion
         clap.attack("Dummy");
         std::cout << "Energy points left: " << clap.getEnergyPoints() << std::endl;
     }
-    // Try to repair or attack when out of energy
-    clap.beRepaired(3);
+    clap.beRepaired(3);// Try to repair or attack when out of energy
     clap.attack("Dummy");
 
     return 0;

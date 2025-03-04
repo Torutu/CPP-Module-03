@@ -4,10 +4,6 @@
 #include <string>
 #include <iostream>
 
-// Define ANSI color codes
-#define COLOR_ORANGE "\033[38;5;214m"  // 214 is a shade close to orange
-#define COLOR_RESET "\033[0m"
-
 class ClapTrap {
 protected:
     std::string _name;
@@ -16,14 +12,14 @@ protected:
     unsigned int _attackDamage;
 
 public:
-    // Constructors and Destructor
-    ClapTrap(const std::string& name);
-    ClapTrap(const ClapTrap& other);
-    ~ClapTrap();
-    ClapTrap& operator=(const ClapTrap& other);
+    ClapTrap(); // Default constructor
+    ClapTrap(const std::string& name); // Parameterized constructor
+    ClapTrap(const ClapTrap& other);// Copy constructor
+    virtual ~ClapTrap();// Destructor
+    ClapTrap& operator=(const ClapTrap& other);// Assignment operator
 
     // Member functions
-    void attack(const std::string& target);
+    virtual void attack(const std::string& target);
     void takeDamage(unsigned int amount);
     void beRepaired(unsigned int amount);
 

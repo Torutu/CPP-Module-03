@@ -1,8 +1,5 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
-
-#include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 
 int main() {
@@ -11,6 +8,15 @@ int main() {
     clap.attack("Dummy");
     clap.takeDamage(5);
     clap.beRepaired(3);
+
+    std::cout << std::endl;
+
+    ClapTrap *berry = nullptr;
+    berry = new ScavTrap("Dingle Berry");
+    berry->attack("self");
+    berry->takeDamage(5);
+    berry->beRepaired(3);
+    delete berry;
 
     std::cout << std::endl;
 

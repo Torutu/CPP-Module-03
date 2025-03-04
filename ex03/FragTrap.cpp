@@ -1,12 +1,18 @@
 #include "FragTrap.hpp"
 
-// Define macros for green and reset
-FragTrap::FragTrap(const std::string& name) : ClapTrap(name) {
+FragTrap::FragTrap() : ClapTrap() { // Default constructor
+    _name = "Fraggy";
     _hitPoints = 100;
     _energyPoints = 100;
     _attackDamage = 30;
-    // Using GREEN and RESET macros
-    std::cout << COLOR_GREEN << "FragTrap " << _name << " constructed!" << COLOR_RESET << std::endl;
+    std::cout << "FragTrap " << _name << " constructed!" << std::endl;
+}
+
+FragTrap::FragTrap(const std::string& name) : ClapTrap(name) { // Parameterized constructor
+    _hitPoints = 100;
+    _energyPoints = 100;
+    _attackDamage = 30;
+    std::cout << "FragTrap " << _name << " constructed!" << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap& other) : ClapTrap(other) { // Copy constructor
@@ -24,12 +30,10 @@ FragTrap& FragTrap::operator=(const FragTrap& other) { // Assignment operator
     return *this;
 }
 
-FragTrap::~FragTrap() {
-    // Using GREEN and RESET macros
-    std::cout << COLOR_GREEN << "FragTrap " << _name << " destructed!" << COLOR_RESET << std::endl;
+FragTrap::~FragTrap() { // Destructor
+    std::cout << "FragTrap " << _name << " destructed!" << std::endl;
 }
 
-void FragTrap::highFivesGuys() {
-    // Using GREEN and RESET macros
-    std::cout << COLOR_GREEN << "FragTrap " << _name << " requests a high five! 🙌" << COLOR_RESET << std::endl;
+void FragTrap::highFivesGuys() { 
+    std::cout << "FragTrap " << _name << " requests a high five! 🙌" << std::endl;
 }

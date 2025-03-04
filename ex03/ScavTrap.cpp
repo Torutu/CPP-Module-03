@@ -1,13 +1,23 @@
+#include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+
+ScavTrap::ScavTrap() {
+    _name = "Scavvy";
+    _hitPoints = 100;
+    _energyPoints = 50;
+    _attackDamage = 20;
+    std::cout << "ScavTrap " << _name << " constructed!" << std::endl;
+}
+
 ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name) {
     _hitPoints = 100;
     _energyPoints = 50;
     _attackDamage = 20;
-    std::cout << COLOR_RED << "ScavTrap " << _name << " constructed!" << COLOR_RESET << std::endl;
+    std::cout << "ScavTrap " << _name << " constructed!" << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other) {
-    std::cout << COLOR_RED << "ScavTrap " << _name << " copy constructed!" << COLOR_RESET << std::endl;
+    std::cout << "ScavTrap " << _name << " copied!" << std::endl;
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& other) {
@@ -17,26 +27,26 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& other) {
         this->_energyPoints = other._energyPoints;
         this->_attackDamage = other._attackDamage;
     }
-    std::cout << COLOR_RED << "ScavTrap " << _name << " copy assigned!" << COLOR_RESET << std::endl;
+    std::cout << "Copy Operator called!" << std::endl;
     return *this;
 }
 
 ScavTrap::~ScavTrap() {
-    std::cout << COLOR_RED << "ScavTrap " << _name << " destructed!" << COLOR_RESET << std::endl;
+    std::cout << "ScavTrap " << _name << " destructed!" << std::endl;
 }
 
 void ScavTrap::attack(const std::string& target) {
     if (_energyPoints > 0 && _hitPoints > 0) {
-        std::cout << COLOR_RED << "ScavTrap " << _name << " viciously attacks " << target 
-                  << ", causing " << _attackDamage << " points of damage!" << COLOR_RESET << std::endl;
+        std::cout << "ScavTrap " << _name << " viciously attacks " << target 
+                  << ", causing " << _attackDamage << " points of damage!" << std::endl;
         _energyPoints--;
     } else if (_energyPoints <= 0) {
-        std::cout << COLOR_RED << "ScavTrap " << _name << " has no energy left to attack!" << COLOR_RESET << std::endl;
+        std::cout << "ScavTrap " << _name << " has no energy left to attack!" << std::endl;
     } else {
-        std::cout << COLOR_RED << "ScavTrap " << _name << " cannot attack as it is out of hit points!" << COLOR_RESET << std::endl;
+        std::cout << "ScavTrap " << _name << " cannot attack as it is out of hit points!" << std::endl;
     }
 }
 
 void ScavTrap::guardGate() {
-    std::cout << COLOR_RED << "ScavTrap " << _name << " is now in Gate keeper mode!" << COLOR_RESET << std::endl;
+    std::cout << "ScavTrap " << _name << " is now in Gate keeper mode!" << std::endl;
 }

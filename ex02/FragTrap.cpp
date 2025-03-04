@@ -1,6 +1,14 @@
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(const std::string& name) : ClapTrap(name) { // Constructor
+FragTrap::FragTrap() : ClapTrap() { // Default constructor
+    _name = "Fraggy";
+    _hitPoints = 100;
+    _energyPoints = 100;
+    _attackDamage = 30;
+    std::cout << "FragTrap " << _name << " constructed!" << std::endl;
+}
+
+FragTrap::FragTrap(const std::string& name) : ClapTrap(name) { // Parameterized constructor
     _hitPoints = 100;
     _energyPoints = 100;
     _attackDamage = 30;

@@ -1,6 +1,16 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 
+//Constructor
+ScavTrap::ScavTrap() {
+    _name = "Scavvy";
+    _hitPoints = 100;
+    _energyPoints = 50;
+    _attackDamage = 20;
+    std::cout << "ScavTrap " << _name << " constructed!" << std::endl;
+}
+
+// Parameterized constructor
 ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name) {
     _hitPoints = 100;
     _energyPoints = 50;
@@ -8,10 +18,12 @@ ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name) {
     std::cout << "ScavTrap " << _name << " constructed!" << std::endl;
 }
 
+// Copy Constructor
 ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other) {
     std::cout << "ScavTrap " << _name << " copied!" << std::endl;
 }
 
+// Assignment operator
 ScavTrap& ScavTrap::operator=(const ScavTrap& other) {
     if (this != &other) {
         this->_name = other._name;
@@ -23,6 +35,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& other) {
     return *this;
 }
 
+// Destructor
 ScavTrap::~ScavTrap() {
     std::cout << "ScavTrap " << _name << " destructed!" << std::endl;
 }

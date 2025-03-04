@@ -5,10 +5,12 @@
 
 class FragTrap : public ClapTrap {
 public:
+    FragTrap(); // Default constructor
     FragTrap(const std::string& name);  // Constructor
     ~FragTrap(); // Destructor
     FragTrap(const FragTrap& other); // Copy constructor
     FragTrap& operator=(const FragTrap& other); // Assignment operator
+
     void highFivesGuys(); // New special ability
 };
 

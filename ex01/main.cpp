@@ -1,5 +1,5 @@
 #include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
+#include"ScavTrap.hpp"
 
 int main() {
     // ClapTrap test
@@ -10,6 +10,14 @@ int main() {
 
     std::cout << std::endl;
 
+    ClapTrap *berry = nullptr; // Pointer to ClapTrap
+    berry = new ScavTrap("Dingle Berry"); // Upcasting
+    berry->attack("self"); // Call to derived class function
+    berry->takeDamage(5); // Call to base class function
+    berry->beRepaired(3); // Call to base class function
+    delete berry;
+
+    std::cout << std::endl;
     // ScavTrap test
     ScavTrap scav("Scavvy");
     scav.attack("Dummy");
@@ -19,6 +27,5 @@ int main() {
 
     std::cout << std::endl;
 
-    // Proper destruction chaining
     return 0;
 }

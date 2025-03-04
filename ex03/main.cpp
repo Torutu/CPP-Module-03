@@ -22,6 +22,16 @@ int main() {
 
     std::cout << std::endl;
 
+    ClapTrap *berry = nullptr;
+    berry = new ScavTrap("Dingle Berry");
+    berry->attack("self");
+    berry->takeDamage(5);
+    berry->beRepaired(3);
+    delete berry;
+
+
+    std::cout << std::endl;
+
     // FragTrap test
     FragTrap frag("Fraggy");
     frag.attack("Dummy");

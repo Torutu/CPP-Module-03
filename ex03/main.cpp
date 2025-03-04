@@ -33,16 +33,16 @@ int main() {
     std::cout << std::endl;
 
     // FragTrap test
-    FragTrap frag("Fraggy");
-    frag.attack("Dummy");
-    frag.takeDamage(50);
-    frag.beRepaired(40);
-    frag.highFivesGuys();
+    // FragTrap frag("Fraggy");
+    // frag.attack("Dummy");
+    // frag.takeDamage(50);
+    // frag.beRepaired(40);
+    // frag.highFivesGuys();
 
     std::cout << std::endl;
 
     // DiamondTrap test
-    DiamondTrap diamond("Diamondy");
+    DiamondTrap diamond("Diamondaddy");
     diamond.attack("Dummy");
     diamond.takeDamage(50);
     diamond.beRepaired(40);

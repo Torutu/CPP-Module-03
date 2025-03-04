@@ -1,55 +1,65 @@
 #include "DiamondTrap.hpp"
-#include <iostream>
 
-DiamondTrap::DiamondTrap()// Default constructor
-    : ClapTrap(), ScavTrap(), FragTrap(), _name("Default") {
-    std::cout  << "DiamondTrap " << _name << " constructed!" << std::endl;
+// Default constructor
+DiamondTrap::DiamondTrap()
+    : ClapTrap("Default_clap_name"),
+      ScavTrap(),
+      FragTrap(),
+      _name("Default") {
 
     // Set attributes based on parent classes
-    this->_name=ClapTrap::_name + "_clap_name";                   // Name from ClapTrap
-    this->_hitPoints = FragTrap::_hitPoints;       // Hit points from FragTrap
-    this->_energyPoints = ScavTrap::_energyPoints; // Energy points from ScavTrap
-    this->_attackDamage = FragTrap::_attackDamage; // Attack damage from FragTrap
-}
+    this->_hitPoints = FragTrap::_hitPoints;
+    this->_energyPoints = ScavTrap::_energyPoints;
+    this->_attackDamage = FragTrap::_attackDamage;
 
-DiamondTrap::DiamondTrap(const std::string& name)// Constructor
-    : ClapTrap(name + "_clap_name"), // Initialize ClapTrap subobject
-      ScavTrap(name),                // Initialize ScavTrap subobject
-      FragTrap(name),                // Initialize FragTrap subobject
-      _name(name) {                  // Initialize DiamondTrap's unique name
     std::cout << "DiamondTrap " << _name << " constructed!" << std::endl;
+}
+
+// Parameterized constructor
+DiamondTrap::DiamondTrap(const std::string& name)
+    : ClapTrap(name + "_clap_name"),
+      ScavTrap(),
+      FragTrap(),
+      _name(name) {
 
     // Set attributes based on parent classes
-    this->_hitPoints = FragTrap::_hitPoints;       // Hit points from FragTrap
-    this->_energyPoints = ScavTrap::_energyPoints; // Energy points from ScavTrap
-    this->_attackDamage = FragTrap::_attackDamage; // Attack damage from FragTrap
+    this->_hitPoints = FragTrap::_hitPoints;
+    this->_energyPoints = ScavTrap::_energyPoints;
+    this->_attackDamage = FragTrap::_attackDamage;
+
+    std::cout << "DiamondTrap " << _name << " constructed!" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap& other)// Copy Constructor
+// Copy constructor
+DiamondTrap::DiamondTrap(const DiamondTrap& other)
     : ClapTrap(other), ScavTrap(other), FragTrap(other), _name(other._name) {
-    std::cout << "DiamondTrap " << _name << " copy constructed!" << std::endl;
+    std::cout << "DiamondTrap " << _name << " copied!" << std::endl;
 }
 
-DiamondTrap& DiamondTrap::operator=(const DiamondTrap& other) {// Copy Assignment Operator
-    std::cout<< "DiamondTrap " << _name << " copy assigned!" << std::endl;
+// Copy assignment operator
+DiamondTrap& DiamondTrap::operator=(const DiamondTrap& other) {
     if (this != &other) {
-        ClapTrap::operator=(other); // Assign ClapTrap part
-        ScavTrap::operator=(other); // Assign ScavTrap part
-        FragTrap::operator=(other); // Assign FragTrap part
-        _name = other._name;        // Assign DiamondTrap's unique name
+        ClapTrap::operator=(other);
+        ScavTrap::operator=(other);
+        FragTrap::operator=(other);
+        _name = other._name;
     }
+    std::cout << "DiamondTrap " << _name << " assigned!" << std::endl;
     return *this;
 }
 
-DiamondTrap::~DiamondTrap() {// Destructor
+// Destructor
+DiamondTrap::~DiamondTrap() {
     std::cout << "DiamondTrap " << _name << " destructed!" << std::endl;
 }
 
-void	DiamondTrap::attack(const std::string &target){
-	ScavTrap::attack(target);
-}
-
-// Special function
+// Unique function
 void DiamondTrap::whoAmI() {
     std::cout << "I am " << _name << ", and my ClapTrap name is " << ClapTrap::_name << std::endl;
+}
+
+// Override attack
+void DiamondTrap::attack(const std::string& target) {
+    this->ClapTrap::_name = this->_name; // Set ClapTrap's name to DiamondTrap's name
+    ScavTrap::attack(target); // Use ScavTrap's attack
 }

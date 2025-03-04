@@ -3,7 +3,7 @@
 
 DiamondTrap::DiamondTrap()// Default constructor
     : ClapTrap(), ScavTrap(), FragTrap(), _name("Default") {
-    std::cout << COLOR_BLUE << "DiamondTrap " << _name << " constructed!" << COLOR_RESET << std::endl;
+    std::cout  << "DiamondTrap " << _name << " constructed!" << std::endl;
 
     // Set attributes based on parent classes
     this->_name=ClapTrap::_name + "_clap_name";                   // Name from ClapTrap
@@ -17,7 +17,7 @@ DiamondTrap::DiamondTrap(const std::string& name)// Constructor
       ScavTrap(name),                // Initialize ScavTrap subobject
       FragTrap(name),                // Initialize FragTrap subobject
       _name(name) {                  // Initialize DiamondTrap's unique name
-    std::cout << COLOR_BLUE << "DiamondTrap " << _name << " constructed!" << COLOR_RESET << std::endl;
+    std::cout << "DiamondTrap " << _name << " constructed!" << std::endl;
 
     // Set attributes based on parent classes
     this->_hitPoints = FragTrap::_hitPoints;       // Hit points from FragTrap
@@ -27,11 +27,11 @@ DiamondTrap::DiamondTrap(const std::string& name)// Constructor
 
 DiamondTrap::DiamondTrap(const DiamondTrap& other)// Copy Constructor
     : ClapTrap(other), ScavTrap(other), FragTrap(other), _name(other._name) {
-    std::cout << COLOR_BLUE << "DiamondTrap " << _name << " copy constructed!" << COLOR_RESET << std::endl;
+    std::cout << "DiamondTrap " << _name << " copy constructed!" << std::endl;
 }
 
 DiamondTrap& DiamondTrap::operator=(const DiamondTrap& other) {// Copy Assignment Operator
-    std::cout << COLOR_BLUE << "DiamondTrap " << _name << " copy assigned!" << COLOR_RESET << std::endl;
+    std::cout<< "DiamondTrap " << _name << " copy assigned!" << std::endl;
     if (this != &other) {
         ClapTrap::operator=(other); // Assign ClapTrap part
         ScavTrap::operator=(other); // Assign ScavTrap part
@@ -42,7 +42,7 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap& other) {// Copy Assignmen
 }
 
 DiamondTrap::~DiamondTrap() {// Destructor
-    std::cout << COLOR_BLUE << "DiamondTrap " << _name << " destructed!" << COLOR_RESET << std::endl;
+    std::cout << "DiamondTrap " << _name << " destructed!" << std::endl;
 }
 
 void	DiamondTrap::attack(const std::string &target){
@@ -51,5 +51,5 @@ void	DiamondTrap::attack(const std::string &target){
 
 // Special function
 void DiamondTrap::whoAmI() {
-    std::cout << COLOR_BLUE << "I am " << _name << ", and my ClapTrap name is " << ClapTrap::_name << COLOR_RESET << std::endl;
+    std::cout << "I am " << _name << ", and my ClapTrap name is " << ClapTrap::_name << std::endl;
 }

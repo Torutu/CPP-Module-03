@@ -4,8 +4,8 @@
 #include <string>
 #include <iostream>
 
-class ClapTrap {
-private:
+class ClapTrap {// Base class
+private:// Member attributes
     std::string _name;
     unsigned int _hitPoints;
     unsigned int _energyPoints;

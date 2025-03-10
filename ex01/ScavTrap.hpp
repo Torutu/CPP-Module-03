@@ -3,10 +3,10 @@
 
 #include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap {
+class ScavTrap : public ClapTrap {// Derived class
 public:
     ScavTrap(); // Default constructor
-    ScavTrap(const std::string& name);// Parameterized constructor
+    ScavTrap(const std::string& name);// Parameterized constructor and upcasting
     ScavTrap(const ScavTrap& other);// Copy constructor
     ~ScavTrap();// Destructor
     ScavTrap& operator=(const ScavTrap& other);// Assignment operator

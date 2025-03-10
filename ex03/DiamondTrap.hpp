@@ -4,7 +4,7 @@
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 
-class DiamondTrap : public ScavTrap, public FragTrap {
+class DiamondTrap : public ScavTrap, public FragTrap {// Derived class
 private:
     std::string _name; // DiamondTrap's unique name
 public:
